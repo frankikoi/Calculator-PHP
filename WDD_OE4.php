@@ -11,7 +11,7 @@
 <link rel="canonical" href="https://form.jotform.com/212958554367468" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=1" />
 <meta name="HandheldFriendly" content="true" />
-<title>Find the Highest Value</title>
+<title>WDD OE4</title>
 <link href="https://cdn01.jotfor.ms/static/formCss.css?3.3.28645" rel="stylesheet" type="text/css" />
 <style type="text/css">@media print{.form-section{display:inline!important}.form-pagebreak{display:none!important}.form-section-closed{height:auto!important}.page-section{position:initial!important}}</style>
 <link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/nova.css?3.3.28645" />
@@ -208,7 +208,7 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"result","qid":"1","subLabel":"max(x
               Calculator
             </h2>
             <div id="subHeader_3" class="form-subHeader">
-              Please enter 2 value to solve a arithmetic problem
+              Please enter 2 value to solve an arithmetic problem
             </div>
           </div>
         </div>
@@ -220,12 +220,13 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"result","qid":"1","subLabel":"max(x
   <input type = "submit" name = "sub" value = "SUBTRACTION">
   <input type = "submit" name = "multiply" value = "MULTIPLICATION">
   <input type = "submit" name = "divide" value = "DIVISION">
+  <input type = "submit" name = "percent" value = "PERCENT">
+  <input type = "submit" name = "all" value = "ALL">
 </form>
 <?php 
   function add($x, $y){
       $sum = $x + $y;
       echo "Sum is equal to $sum";
-
   }
   function sub($x, $y){
       $diff = $x - $y;
@@ -238,12 +239,31 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"result","qid":"1","subLabel":"max(x
   function divide ($x, $y){
       $quotient = $x / $y;
       echo "Quotient is equal to $quotient";
+  }   
+  function percent ($x, $y){
+    $sum = ($x + $y)/100;
+    $diff = ($x - $y)/100;
+    $product = ($x * $y)/100;
+    $quotient = ($x / $y)/100;
+    echo "Percent of Sum is equal to $sum <br>";
+    echo "Percent of Difference is equal to $diff <br>";
+    echo "Percent of Product is equal to $product <br>";
+    echo "Percent of Quotient is equal to $quotient <br>";
   }
-
-  if(isset($_POST['add'])){
-      add($_POST["x"], $_POST["y"]);
+  function all ($x,$y){
+      $sum = $x + $y;
+      $diff = $x - $y;
+      $product = $x * $y;
+      $quotient = $x / $y;
+      echo "Sum is equal to $sum <br>";
+      echo "Difference is equal to $diff <br>";
+      echo "Product is equal to $product <br>";
+      echo "Quotient is equal to $quotient <br>";
   }
   
+  if(isset($_POST['add'])){
+     add($_POST["x"], $_POST["y"]);
+  }
   if(isset($_POST['sub'])){
       sub($_POST["x"], $_POST["y"]);
   }
@@ -252,6 +272,12 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"result","qid":"1","subLabel":"max(x
   }
   if (isset($_POST['divide'])){
       divide($_POST["x"], $_POST["y"]);
+  }
+  if (isset($_POST['percent'])){
+      percent($_POST["x"], $_POST["y"]);
+  }
+  if (isset($_POST['all'])){
+      all($_POST["x"], $_POST["y"]);
   }
 
 ?>
@@ -276,17 +302,6 @@ for (var i = 0; i < all_spc.length; i++)
 }
   </script>
   <div class="formFooter-heightMask">
-  </div>
-  <div class="formFooter f6 branding21">
-    <div class="formFooter-wrapper formFooter-leftSide">
-      <a href="https://www.jotform.com/?utm_source=formfooter&utm_medium=banner&utm_term=212958554367468&utm_content=jotform_logo&utm_campaign=powered_by_jotform_le" target="_blank" class="formFooter-logoLink"><img class="formFooter-logo" src="https://cdn.jotfor.ms/assets/img/logo2021/jotform-logo-white.svg" alt="Jotform Logo" style="height: 44px;"></a>
-    </div>
-    <div class="formFooter-wrapper formFooter-rightSide">
-      <span class="formFooter-text">
-        Now create your own Jotform - It's free!
-      </span>
-      <a class="formFooter-button" href="https://www.jotform.com/?utm_source=formfooter&utm_medium=banner&utm_term=212958554367468&utm_content=jotform_button&utm_campaign=powered_by_jotform_le" target="_blank">Create your own Jotform</a>
-    </div>
   </div>
 </form></body>
 </html>
